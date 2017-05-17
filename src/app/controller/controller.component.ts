@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'app-road',
-  templateUrl: './road.component.html',
-  styleUrls: ['./road.component.css']
+  selector: 'app-controller',
+  templateUrl: './controller.component.html',
+  styleUrls: ['./controller.component.css']
 })
-export class RoadComponent implements OnInit {
+export class ControllerComponent implements OnInit {
 
   @ViewChild('north') north;
   @ViewChild('south') south;
@@ -43,7 +43,7 @@ export class RoadComponent implements OnInit {
 
   start() {
     let cycle_delay = this.cyclePulseCalc();
-
+    console.log(cycle_delay);
     this.controlState = "inital";
 
     if (this.controlState == "inital") {
@@ -78,6 +78,7 @@ export class RoadComponent implements OnInit {
       }
     }, cycle_delay)
   }
+
 
   reset() {
     clearInterval(this.TimerControl);

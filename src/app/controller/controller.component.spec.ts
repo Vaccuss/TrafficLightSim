@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoadComponent } from './road.component';
+import { RoadComponent } from './controller.component';
 
 describe('RoadComponent', () => {
   let component: RoadComponent;

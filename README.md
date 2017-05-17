@@ -30,17 +30,17 @@ Find it on `http://localhost:4200/`
 ## Output for system.
 #### Essential loop
 ```
-(NS) turn green
-(driving delay)
-(NS) turn yellow - delay 30 seconds
-(NS) turn red
-(All delay 500ms)
+(North & South lights) turn green
+(driving delay - default 5 minutes)
+(North & South lights) turn yellow - delay 30 seconds
+(North & South lights) turn red
+(All red delay 500ms)
 
-(WS) turn green
+(West & East) turn green
 (driving delay)
-(WS) turn yellow - delay 30 seconds
-(WS) turn red
-(All delay 500ms)
+(West & East) turn yellow - delay 30 seconds
+(West & East) turn red
+(All red delay 500ms)
 ```
 
 

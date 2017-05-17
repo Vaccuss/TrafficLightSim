@@ -9,14 +9,14 @@ export class TrafficLightComponent implements OnInit {
   public red = false;
   public yellow = false;
   public green = true;
-  private yellowShitTime;
+  private yellowShowTime;
 
   constructor() {
   }
 
   ngOnInit() {
     this.set_red();
-    this.yellowShitTime = 30000 // 30 seconds default
+    this.yellowShowTime = 30000 // 30 seconds default
   }
 
   public set_red() {
@@ -35,7 +35,7 @@ export class TrafficLightComponent implements OnInit {
     window.setTimeout(() => {
       this.yellow = false;
       this.red = true;
-    }, this.yellowShitTime)
+    }, this.yellowShowTime)
   }
 
   public turn_green() {
@@ -44,11 +44,11 @@ export class TrafficLightComponent implements OnInit {
   }
 
   yellowShitTimeSetter(time: number) {
-    this.yellowShitTime = time;
+    this.yellowShowTime = time;
   }
 
   yellowShitTimeGetter() {
-    return this.yellowShitTime
+    return this.yellowShowTime
   }
 
 }
