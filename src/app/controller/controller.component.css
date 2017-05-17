@@ -1,50 +1,27 @@
-
-.background {
-  /*display: block;*/
-}
-
 .simulation {
-  /*z-index: -2;*/
-  /*background-color: green;*/
   display: block;
   margin: auto;
   height: 600px;
   width: 600px;
 }
 
-.north-road {
+.north {
   margin-left: 262px;
   margin-top: 10px;
   margin-bottom: 33px;
 }
 
-.south-road {
+.south {
   margin-left: 262px;
   margin-top: 245px;
 }
 
-.centre-road {
-  margin-left: 270px;
-  margin-top: 10px;
-  /*margin-right: 54%;*/
-  /*margin-top: 5%;*/
-  /*margin-bottom: 10vh;*/
-}
-
-.east-west-road {
-  /*display: inline-flex;*/
-}
-
-.east-road {
+.east {
   display: block;
   float: right;
 }
 
-.west-road {
+.west {
   display: block;
   float: left;
-}
-
-.inputFeild {
-  width: 40px;
 }

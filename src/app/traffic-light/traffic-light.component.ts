@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-traffic-light',
@@ -6,9 +6,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./traffic-light.component.css']
 })
 export class TrafficLightComponent implements OnInit {
-  public red = true;
-  public yellow = false;
-  public green = false;
+  red = false;
+  yellow = false;
+  green = false;
   public state: string;
 
   constructor() {
@@ -16,25 +16,24 @@ export class TrafficLightComponent implements OnInit {
 
   ngOnInit() {
     this.state = 'red';
+    this.red = true;
   }
 
   next() {
     switch (this.state) {
       case 'red':
-        this.red = false;
-        this.green = true;
         this.state = "green";
         break;
       case "green":
-        this.yellow = true;
-        this.green = false;
         this.state = "yellow";
         break;
       case "yellow":
-        this.yellow = false;
-        this.red = true;
-        this.state = "red"
+        this.state = "red";
+        break;
     }
+    this.red = (this.state == "red");
+    this.yellow = (this.state == "yellow");
+    this.green = (this.state == "green");
   }
 
 }

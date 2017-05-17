@@ -1,31 +1,22 @@
 <div class="background">
 
-  <!--<p>-->
-    <!--Cycle:-->
-    <!--<input class="inputFeild" [(ngModel)] ="pulseTime" type="number">-->
-    <!--minutes-->
-  <!--</p>-->
   <button class='alert' (click)="start()">Start</button>
-  <!--<button class='alert' (click)="reset()">Reset</button>-->
 
   <div class="simulation">
 
-    <div class="north-road">
+    <div class="north">
       <app-traffic-light #north></app-traffic-light>
     </div>
 
-    <div class="east-west-road">
-      <div class=" west-road">
-        <app-traffic-light #west></app-traffic-light>
-      </div>
-
-      <div class="east-road">
-        <app-traffic-light #east></app-traffic-light>
-      </div>
-
+    <div class=" west">
+      <app-traffic-light #west></app-traffic-light>
     </div>
 
-    <div class="south-road">
+    <div class="east">
+      <app-traffic-light #east></app-traffic-light>
+    </div>
+
+    <div class="south">
       <app-traffic-light #south></app-traffic-light>
     </div>
   </div>

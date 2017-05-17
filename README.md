@@ -1,6 +1,8 @@
-# TrafficLightSim
+# Traffic Light Simulator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+Written by Dean Ditton(2017) for Safety Culture technical interview.
+
+This project was built with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## To run
 
@@ -21,26 +23,24 @@ Find it on `http://localhost:4200/`
 
 ## Assumptions made.
 1. No images were used, all visuals done in css
-2. The 5 minute window was for driving time so changes to lights and other timing delays are additional.
-3. System has an all red start.
-4. System has controls for usability.
-5. Reset control will cancel and reset simulation.
+2. The system assumes 5 minutes for driving time exclusive of light changes.
+3. System has an all red start with north and south lights first to change.
+4. System has start button for convenience 
 6. As per instructions no unit tests were written.
 
 ## Output for system.
 #### Essential loop
 ```
 (North & South lights) turn green
-(driving delay - default 5 minutes)
+(driving delay - 5 minutes)
+
 (North & South lights) turn yellow - delay 30 seconds
 (North & South lights) turn red
-(All red delay 500ms)
 
 (West & East) turn green
-(driving delay)
+(driving delay - 5 minutes)
+
 (West & East) turn yellow - delay 30 seconds
-(West & East) turn red
-(All red delay 500ms)
 ```
 
 

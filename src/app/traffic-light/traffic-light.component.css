@@ -6,10 +6,9 @@
   background-color: #1b1b1b;
   border-radius: 5px;
   z-index: -1;
-
 }
 
-.light {
+.red-light, .yellow-light, .green-light {
   position: absolute;
   height: 40px;
   width: 40px;
@@ -20,22 +19,22 @@
   background-color: wheat;
 }
 
-.light.red {
-  background-color: red;
-}
-
-.secound {
+.yellow-light {
   margin-top: 68px;
 }
-.third {
+
+.green-light {
   margin-top: 125px;
 }
 
-.light.green {
-  background-color: green;
+.red-light.on {
+  background-color: red;
 }
 
-.light.yellow {
+.yellow-light.on {
   background-color: yellow;
 }
 
+.green-light.on {
+  background-color: green;
+}
