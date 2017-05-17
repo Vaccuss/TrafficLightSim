@@ -22,7 +22,7 @@ Find it on `http://localhost:4200/`
 ## Assumptions made.
 1. No images were used, all visuals done in css
 2. The 5 minute window was for driving time so changes to lights and other timing delays are additional.
-3. System has a all red start.
+3. System has an all red start.
 4. System has controls for usability.
 5. Reset control will cancel and reset to simulation.
 
