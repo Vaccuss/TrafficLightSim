@@ -11,81 +11,47 @@ export class ControllerComponent implements OnInit {
   @ViewChild('south') south;
   @ViewChild('east') east;
   @ViewChild('west') west;
-  public pulseTime;
-  public yellowShiftTime;
-  public changeDelay;
-  private TimerControl;
   private controlState;
+  private northSouthLights;
+  private eastWestLights;
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.pulseTime = 5;
-    this.updateYellowShiftTimes(30000); // 30 seconds
-    this.changeDelay = this.yellowShiftTime + 500; // Transition time
-    this.TimerControl = false;
+    this.northSouthLights = [this.north, this.south];
+    this.eastWestLights = [this.east, this.west];
   }
 
-  updateYellowShiftTimes(time: number) {
-    this.yellowShiftTime = time;
-    this.north.yellowShitTimeSetter(this.yellowShiftTime);
-    this.south.yellowShitTimeSetter(this.yellowShiftTime);
-    this.east.yellowShitTimeSetter(this.yellowShiftTime);
-    this.west.yellowShitTimeSetter(this.yellowShiftTime);
+
+  turnYellow() {
+    if (this.controlState == "NS") {
+      this.lightChange(this.northSouthLights);
+    }
+    else {
+      this.lightChange(this.eastWestLights);
+    }
+    setTimeout(this.control.bind(this), 3000)
   }
 
-  cyclePulseCalc() {
-    let driving_interval = (this.pulseTime * 60) * 1000;
-    return driving_interval + this.changeDelay
+  control() {
+    this.lightChange(this.northSouthLights);
+    this.lightChange(this.eastWestLights);
+    this.controlState = (this.controlState == "NS") ? "EW" : "NS";
+    setTimeout(this.turnYellow.bind(this), 5000)
+  }
+
+  lightChange(lightArray) {
+    for (let light of lightArray) {
+      light.next();
+    }
   }
 
   start() {
-    let cycle_delay = this.cyclePulseCalc();
-    console.log(cycle_delay);
-    this.controlState = "inital";
-
-    if (this.controlState == "inital") {
-      this.north.turn_green();
-      this.south.turn_green();
-    }
-    this.TimerControl = window.setInterval(() => {
-      switch (this.controlState) {
-        case "WE":
-          this.north.turn_red();
-          this.south.turn_red();
-          window.setTimeout(() => {
-            this.east.turn_green();
-            this.west.turn_green();
-          }, this.changeDelay);
-
-          this.controlState = "NS";
-          break;
-
-        case "NS":
-          this.east.turn_red();
-          this.west.turn_red();
-          window.setTimeout(() => {
-            this.north.turn_green();
-            this.south.turn_green();
-          }, this.changeDelay);
-          this.controlState = "WE";
-          break;
-        default :
-          this.controlState = "WE";
-
-      }
-    }, cycle_delay)
+    this.controlState = "NS";
+    this.lightChange(this.northSouthLights);
+    setTimeout(this.turnYellow.bind(this), 5000)
   }
 
-
-  reset() {
-    clearInterval(this.TimerControl);
-    this.north.set_red();
-    this.south.set_red();
-    this.east.set_red();
-    this.west.set_red();
-
-  }
 }

@@ -6,49 +6,35 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./traffic-light.component.css']
 })
 export class TrafficLightComponent implements OnInit {
-  public red = false;
+  public red = true;
   public yellow = false;
-  public green = true;
-  private yellowShowTime;
+  public green = false;
+  public state: string;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.set_red();
-    this.yellowShowTime = 30000 // 30 seconds default
+    this.state = 'red';
   }
 
-  public set_red() {
-    this.red = true;
-    this.green = false;
-  }
-
-  public set_green() {
-    this.red = false;
-    this.green = true;
-  }
-
-  public turn_red() {
-    this.green = false;
-    this.yellow = true;
-    window.setTimeout(() => {
-      this.yellow = false;
-      this.red = true;
-    }, this.yellowShowTime)
-  }
-
-  public turn_green() {
-    // Wrapper for component internal consistency and logical extension point.
-    this.set_green()
-  }
-
-  yellowShitTimeSetter(time: number) {
-    this.yellowShowTime = time;
-  }
-
-  yellowShitTimeGetter() {
-    return this.yellowShowTime
+  next() {
+    switch (this.state) {
+      case 'red':
+        this.red = false;
+        this.green = true;
+        this.state = "green";
+        break;
+      case "green":
+        this.yellow = true;
+        this.green = false;
+        this.state = "yellow";
+        break;
+      case "yellow":
+        this.yellow = false;
+        this.red = true;
+        this.state = "red"
+    }
   }
 
 }
