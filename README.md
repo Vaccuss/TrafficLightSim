@@ -1,6 +1,6 @@
 # Traffic Light Simulator
 
-Written by Dean Ditton(2017) for Safety Culture technical interview.
+Written by Dean Ditton(2017) for technical interview.
 
 This project was built with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
